@@ -1,0 +1,67 @@
+﻿<html>
+<head>
+    <script type="text/javascript" src="lib.js"></script>
+    <script type="text/javascript">
+        function getSelectedCar() {
+            var elem = document.getElementById("carsNames");
+            var selectedCar = elem.options[elem.selectedIndex].value;
+            return selectedCar;
+        }
+        function getSelectedYearFrom() {
+            var elem = document.getElementById("yearFrom");
+            var selectedYear = elem.value;
+            return selectedYear;
+        }
+        function getSelectedYearTo() {
+            var elem = document.getElementById("yearTo");
+            var selectedYear = elem.value;
+            return selectedYear;
+        }
+
+        function getDataAndPost() {
+            var selectedCar = getSelectedCar();
+            var selectedYearFrom = getSelectedYearFrom();
+            var selectedYearTo = getSelectedYearTo();
+            openPages(selectedYearFrom,selectedYearTo,selectedCar);
+        }
+    </script>
+</head>
+<body>
+    <p><b>Страница поиска автомобилей</b></p>
+    <form>
+<table id="names"><tr>
+<td>
+      <label id="carName">Марка автомобиля:</label>
+</td>
+<td>
+        <select name="cars" id="carsNames">
+            <option value="opel">Опель Мокка</option>
+            <option value="ford">Форд Экоспорт</option>
+            <option value="mitsubishi">Мицубиси ASX</option>
+            <option value="mazda">Мазда 3</option>
+        </select>
+</td>
+ </tr>
+</table>
+        <br>
+        <table id="years">
+            <tr>
+                <td>
+                    <label id="yfrom">Год с:</label>
+                </td>
+                <td>
+                    <input type="number" id="yearFrom" min="2005" max="2018" step="1" value="2012" />
+                </td>
+                <td>
+                    <label id="yyo">Год по:</label>
+                </td>
+                <td>
+                    <input type="number" id="yearTo" min="2005" max="2018" step="1" value="2015" />
+                </td>
+            </tr>
+        </table>
+             <br>
+            <input type="button" value="Открыть страницы" onclick="getDataAndPost()" />
+    </form>
+</body>
+</html>  
